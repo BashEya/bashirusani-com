@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bashirusani.com/sitemap.xml
