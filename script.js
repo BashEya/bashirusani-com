@@ -21,66 +21,30 @@ speedInsightsScript.defer=true;
 speedInsightsScript.src='/_vercel/speed-insights/script.js';
 document.head.appendChild(speedInsightsScript);
 
-// Progressive SEO enrichment. The core title, description and canonical URL
-// remain in index.html; these additions enrich entity and social metadata.
-const ensureMeta=(key,value,attribute='name')=>{
-  if(!document.head.querySelector(`meta[${attribute}="${key}"]`)){
-    const meta=document.createElement('meta');
-    meta.setAttribute(attribute,key);
-    meta.content=value;
-    document.head.appendChild(meta);
-  }
+// Use the dedicated favicon/app-icon set across browsers and devices.
+// Remove the earlier single-logo favicon links first so browsers do not choose
+// the old full-size logo in preference to the optimized icons.
+document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"], link[rel="manifest"]').forEach(link=>link.remove());
+
+const addHeadLink=(rel,href,{sizes,type}={})=>{
+  const link=document.createElement('link');
+  link.rel=rel;
+  link.href=href;
+  if(sizes) link.sizes=sizes;
+  if(type) link.type=type;
+  document.head.appendChild(link);
 };
 
-ensureMeta('author','Bashiru Sani');
-ensureMeta('robots','index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
-ensureMeta('keywords','Bashiru Sani, microbiologist, environmental microbiology, microbial ecology, bioremediation, free-living amoebae, antimicrobial resistance, One Health, omics, metagenomics, University of Strathclyde');
+addHeadLink('icon','/assets/favicon.ico',{type:'image/x-icon'});
+addHeadLink('icon','/assets/favicon-16x16.png',{sizes:'16x16',type:'image/png'});
+addHeadLink('icon','/assets/favicon-32x32.png',{sizes:'32x32',type:'image/png'});
+addHeadLink('icon','/assets/favicon-48x48.png',{sizes:'48x48',type:'image/png'});
+addHeadLink('apple-touch-icon','/assets/apple-touch-icon.png',{sizes:'180x180'});
+addHeadLink('manifest','/site.webmanifest');
 
-ensureMeta('og:site_name','Bashiru Sani','property');
-ensureMeta('og:locale','en_GB','property');
-ensureMeta('og:image','https://bashirusani.com/assets/bashiru-portrait.jpg','property');
-ensureMeta('og:image:alt','Bashiru Sani, microbiologist, PhD researcher and lecturer','property');
-ensureMeta('profile:first_name','Bashiru','property');
-ensureMeta('profile:last_name','Sani','property');
-
-ensureMeta('twitter:card','summary_large_image');
-ensureMeta('twitter:site','@BashEya');
-ensureMeta('twitter:creator','@BashEya');
-ensureMeta('twitter:title','Bashiru Sani | Microbiologist, PhD Researcher & Lecturer');
-ensureMeta('twitter:description','Microbiology across health, environment and remediation — microbial ecology, bioremediation, One Health, AMR and omics.');
-ensureMeta('twitter:image','https://bashirusani.com/assets/bashiru-portrait.jpg');
-ensureMeta('twitter:image:alt','Bashiru Sani, microbiologist, PhD researcher and lecturer');
-
-if(!document.getElementById('bashiru-person-schema')){
-  const schema=document.createElement('script');
-  schema.id='bashiru-person-schema';
-  schema.type='application/ld+json';
-  schema.textContent=JSON.stringify({
-    '@context':'https://schema.org',
-    '@type':'Person',
-    name:'Bashiru Sani',
-    url:'https://bashirusani.com/',
-    image:'https://bashirusani.com/assets/bashiru-portrait.jpg',
-    jobTitle:['PhD Researcher','Assistant Lecturer','Microbiologist'],
-    description:'Microbiologist, PhD researcher and lecturer working across environmental microbiology, microbial ecology, bioremediation, antimicrobial resistance, One Health and omics.',
-    address:{'@type':'PostalAddress',addressLocality:'Glasgow',addressCountry:'GB'},
-    affiliation:{'@type':'CollegeOrUniversity',name:'University of Strathclyde',url:'https://www.strath.ac.uk/'},
-    worksFor:{'@type':'CollegeOrUniversity',name:'Federal University of Lafia',url:'https://fulafia.edu.ng/'},
-    alumniOf:[
-      {'@type':'CollegeOrUniversity',name:'University of Glasgow',url:'https://www.gla.ac.uk/'},
-      {'@type':'CollegeOrUniversity',name:'Federal University of Lafia',url:'https://fulafia.edu.ng/'}
-    ],
-    sameAs:[
-      'https://www.linkedin.com/in/bashir-sani/',
-      'https://orcid.org/0000-0002-2983-3861',
-      'https://scholar.google.com/citations?user=ZXR2KdUAAAAJ&hl=en',
-      'https://x.com/BashEya'
-    ],
-    knowsAbout:[
-      'Environmental microbiology','Medical microbiology','Microbial ecology',
-      'Bioremediation','Free-living amoebae','Antimicrobial resistance',
-      'One Health','Omics','Metagenomics'
-    ]
-  });
-  document.head.appendChild(schema);
+if(!document.head.querySelector('meta[name="application-name"]')){
+  const meta=document.createElement('meta');
+  meta.name='application-name';
+  meta.content='Bashiru Sani';
+  document.head.appendChild(meta);
 }
