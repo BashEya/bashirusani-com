@@ -2,67 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bashiru Sani | Microbiologist, PhD Researcher & Lecturer</title>
 <meta name="description" content="Bashiru Sani is a microbiologist, PhD researcher and lecturer working across environmental microbiology, microbial ecology, hydrocarbon bioremediation, One Health, antimicrobial resistance and omics.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="assets/favicon.ico">
 <link rel="canonical" href="https://bashirusani.com/">
 <meta property="og:title" content="Bashiru Sani | Microbiologist, PhD Researcher & Lecturer">
 <meta property="og:description" content="Microbiology across health, environment and remediation.">
 <meta property="og:image" content="https://bashirusani.com/assets/bashiru-social-1200x630-optimized.jpg">
 <meta property="og:url" content="https://bashirusani.com/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="shell nav-row">
-    <a class="brand" href="#home"><img src="assets/bashiru-sani-logo.png" alt="Bashiru Sani logo"><span><strong>Bashiru Sani</strong><small>SCIENCE FOR A HEALTHY PLANET</small></span></a>
-    <button class="menu-btn" id="menuBtn">Menu</button>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="#top">
+      <img src="assets/bashiru-sani-logo.png" alt="Bashiru Sani logo">
+      <div class="brand-copy"><strong>Bashiru Sani</strong><span>SCIENCE FOR A HEALTHY PLANET</span></div>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
     <nav id="navMenu">
-      <a href="#about">About</a><a href="#themes">Research</a><a href="#project">Current Project</a><a href="#outputs">Outputs</a><a href="#publications">Publications</a><a href="https://docs.google.com/document/d/17vDOxzqtsOHcAayKgjzzeFXTjSAkQkySaqrLIhNKVGw/edit?usp=drivesdk" target="_blank">CV</a><a href="#contact">Contact</a><span class="search">⌕</span><a class="collab" href="#contact">Let's Collaborate <b>→</b></a>
+      <a href="#about">About</a><a href="#research">Research</a><a href="#project">Current Project</a><a href="#outputs">Outputs</a><a href="#publications">Publications</a><a href="https://docs.google.com/document/d/17vDOxzqtsOHcAayKgjzzeFXTjSAkQkySaqrLIhNKVGw/edit?usp=drivesdk" target="_blank" rel="noopener">CV</a><a href="#contact">Contact</a>
+      <span class="search">⌕</span>
+      <a class="collab" href="#contact">Let's Collaborate <b>→</b></a>
     </nav>
   </div>
 </header>
-<main>
-<section class="hero-shell" id="home">
-  <div class="hero">
-    <div class="hero-copy" id="about">
-      <p class="kicker">PEOPLE · MICROBES · ENVIRONMENT · SOLUTIONS</p>
-      <h1>Bashiru Sani</h1>
-      <p class="role"><i></i>Microbiologist, PhD Researcher &amp; Lecturer</p>
-      <h2>Microbiology across health,<br>environment and remediation.</h2>
-      <p class="lead">I am a microbiologist, PhD researcher and lecturer working at the intersection of microbial ecology, environmental microbiology, bioremediation and One Health. My research explores how microorganisms and their interactions can help solve real-world challenges, from pollution and environmental contamination to antimicrobial resistance and global health.</p>
-      <div class="hero-actions"><a class="btn primary" href="#project">Explore My Research <span>→</span></a><a class="btn outline" href="#publications"><span class="doc">▤</span>View Publications</a></div>
-      <div class="impact-row"><div><span class="impact-icon">⌂</span><p>Cleaner<br>Environments</p></div><div><span class="impact-icon">♧</span><p>Healthier<br>Communities</p></div><div><span class="impact-icon">⌘</span><p>Sustainable<br>Futures</p></div></div>
-    </div>
-    <div class="hero-visual">
-      <img class="portrait" src="assets/portrait-cutout.svg" alt="Portrait of Bashiru Sani">
-      <p class="script-note">Science<br>for a healthier<br>tomorrow</p>
-      <blockquote>“Microbes hold enormous potential for a cleaner environment, healthier communities and a more resilient planet.”<cite>— BASHIRU SANI</cite></blockquote>
+
+<main id="top">
+<section class="hero shell-wide" id="about">
+  <div class="hero-left">
+    <p class="kicker">PEOPLE · MICROBES · ENVIRONMENT · SOLUTIONS</p>
+    <h1>Bashiru Sani</h1>
+    <p class="role"><i></i>Microbiologist, PhD Researcher &amp; Lecturer</p>
+    <h2>Microbiology across health,<br>environment and remediation.</h2>
+    <p class="lead">I am a microbiologist, PhD researcher and lecturer working at the intersection of microbial ecology, environmental microbiology, bioremediation and One Health. My research explores how microorganisms and their interactions can help solve real-world challenges, from pollution and environmental contamination to antimicrobial resistance and global health.</p>
+    <div class="hero-actions"><a class="btn primary" href="#project">Explore My Research <b>→</b></a><a class="btn outline" href="#publications">▤&nbsp;&nbsp; View Publications</a></div>
+    <div class="impact-row">
+      <div><span>⌂</span><p>Cleaner<br>Environments</p></div>
+      <div><span>♧</span><p>Healthier<br>Communities</p></div>
+      <div><span>⌘</span><p>Sustainable<br>Futures</p></div>
     </div>
   </div>
+  <div class="hero-right">
+    <img class="portrait" src="assets/approved-portrait.webp" alt="Bashiru Sani portrait">
+    <p class="script-note">Science<br>for a healthier<br>tomorrow</p>
+    <blockquote>“Microbes hold enormous potential for a cleaner environment, healthier communities and a more resilient planet.”<cite>— BASHIRU SANI</cite></blockquote>
+  </div>
 </section>
-<section class="focus-shell"><div class="shell focus-grid">
-  <article><span class="focus-icon">◒</span><div><h3>Environmental<br>Microbiology</h3><p>Microbial diversity, ecology and function in natural and polluted environments.</p></div></article>
-  <article><span class="focus-icon">♧</span><div><h3>Bioremediation &amp;<br>Sustainable Solutions</h3><p>Harnessing microbes for the removal of pollutants and a cleaner, healthier planet.</p></div></article>
-  <article><span class="focus-icon">✚</span><div><h3>One Health &amp; AMR</h3><p>Understanding microbial interactions, antimicrobial resistance and the links between human, animal and environmental health.</p></div></article>
-  <article><span class="focus-icon">▥</span><div><h3>Omics &amp; Data-Driven<br>Research</h3><p>Using genomics, metagenomics and bioinformatics to uncover microbial functions and solve real-world problems.</p></div></article>
-</div></section>
-<section class="shell research-row">
-  <article class="panel project-card" id="project"><div class="section-title"><div><h2>Current Research Project</h2><span></span></div><a href="#project">View Details →</a></div><div class="project-layout"><div class="project-copy"><h3>Amoebae, symbionts and hydrocarbon remediation: exploring antimicrobial resistance dynamics using omics.</h3><p>My PhD research investigates the interactions between free-living amoebae and their microbial symbionts in hydrocarbon-contaminated environments, with a focus on bioremediation potential and antimicrobial resistance dynamics using omics approaches.</p><a class="btn navy" href="#themes">Learn More About This Project <span>→</span></a></div><figure><img src="assets/project-preview.svg" alt="Amoeba and microbial symbionts"><figcaption>Amoeba with microbial symbionts<br>(colour-enhanced SEM image)</figcaption></figure></div></article>
-  <article class="panel themes-card" id="themes"><div class="section-title"><div><h2>Research Themes</h2><span></span></div><a href="#themes">View All →</a></div><div class="theme-list"><div><span class="theme-icon">☼</span><section><h3>Microbial Ecology &amp; Interactions</h3><p>How microbes live, interact and adapt in different environments.</p></section></div><div><span class="theme-icon">◒</span><section><h3>Pollution, Bioremediation &amp; Environmental Health</h3><p>Using microbes to mitigate environmental pollution and restore ecosystems.</p></section></div><div><span class="theme-icon">⌬</span><section><h3>Antimicrobial Resistance &amp; One Health</h3><p>Exploring AMR in environmental contexts and its links to human and animal health.</p></section></div><div><span class="theme-icon">▥</span><section><h3>Omics, Bioinformatics &amp; Systems Biology</h3><p>Generating and analysing omics data to understand microbial functions and drive solutions.</p></section></div></div></article>
+
+<section class="shell focus-strip" id="research">
+  <article><span class="round-icon">◒</span><div><h3>Environmental<br>Microbiology</h3><p>Microbial diversity, ecology and function in natural and polluted environments.</p></div></article>
+  <article><span class="round-icon">♧</span><div><h3>Bioremediation &amp;<br>Sustainable Solutions</h3><p>Harnessing microbes for the removal of pollutants and a cleaner, healthier planet.</p></div></article>
+  <article><span class="round-icon shield">✚</span><div><h3>One Health &amp; AMR</h3><p>Understanding microbial interactions, antimicrobial resistance and the links between human, animal and environmental health.</p></div></article>
+  <article><span class="round-icon bars">▥</span><div><h3>Omics &amp; Data-Driven<br>Research</h3><p>Using genomics, metagenomics and bioinformatics to uncover microbial functions and solve real-world problems.</p></div></article>
 </section>
-<section class="shell work-row">
-  <article id="outputs"><div class="section-title compact"><div><h2>Outputs</h2><span></span></div></div><div class="output-grid"><a class="output-card" href="#outputs"><b>♟</b><h3>Conferences</h3><p>Presentations and scientific engagements</p><em>→</em></a><a class="output-card" href="#outputs"><b>▣</b><h3>Workshops &amp; Webinars</h3><p>Training, knowledge sharing and public engagement</p><em>→</em></a><a class="output-card" href="#outputs"><b>◇</b><h3>Training &amp; Certifications</h3><p>Professional development and technical skills</p><em>→</em></a><a class="output-card" href="#outputs"><b>✎</b><h3>Future Blog</h3><p>Ideas, insights and updates from the lab and beyond</p><em>→</em></a></div></article>
-  <article id="publications"><div class="section-title compact"><div><h2>Selected Publications</h2><span></span></div><a href="https://scholar.google.com/citations?user=ZXR2KdUAAAAJ&hl=en" target="_blank">View All Publications →</a></div><div class="pub-list"><a href="https://doi.org/10.36547/be.475" target="_blank"><span>▤</span><div><h3>Prevalence and antibiogram profile of <em>Listeria monocytogenes</em> associated with cattle farms in Lafia, Nasarawa State</h3><p>Bacterial Empire, 2022</p></div></a><a href="https://doi.org/10.55010/imcjms.16.010" target="_blank"><span>▤</span><div><h3>Molecular Pathogenesis of Rocky Mountain Spotted Fever: A Brief Review</h3><p>IMC Journal of Medical Science, 2022</p></div></a><a href="https://doi.org/10.1016/j.bsheal.2021.07.003" target="_blank"><span>▤</span><div><h3>SARS-CoV-2 Spike Protein and RNA Dependent RNA Polymerase as Targets for Drug and Vaccine Development: A Review</h3><p>Biosafety and Health, 2021</p></div></a></div></article>
+
+<section class="shell research-grid">
+  <article class="panel project" id="project">
+    <div class="panel-head"><div><h2>Current Research Project</h2><i></i></div><a href="#project">View Details →</a></div>
+    <div class="project-body">
+      <div class="project-copy">
+        <h3>Amoebae, symbionts and hydrocarbon remediation: exploring antimicrobial resistance dynamics using omics.</h3>
+        <p>My PhD research investigates the interactions between free-living amoebae and their microbial symbionts in hydrocarbon-contaminated environments, with a focus on bioremediation potential and antimicrobial resistance dynamics using omics approaches.</p>
+        <a class="btn dark" href="#research">Learn More About This Project <b>→</b></a>
+      </div>
+      <figure><img src="assets/approved-project.jpg" alt="Amoeba with microbial symbionts"><figcaption>Amoeba with microbial symbionts<br>(colour-enhanced SEM image)</figcaption></figure>
+    </div>
+  </article>
+  <article class="panel themes">
+    <div class="panel-head"><div><h2>Research Themes</h2><i></i></div><a href="#research">View All →</a></div>
+    <div class="theme-list">
+      <div><span>☼</span><section><h3>Microbial Ecology &amp; Interactions</h3><p>How microbes live, interact and adapt in different environments.</p></section></div>
+      <div><span>◒</span><section><h3>Pollution, Bioremediation &amp; Environmental Health</h3><p>Using microbes to mitigate environmental pollution and restore ecosystems.</p></section></div>
+      <div><span>⌬</span><section><h3>Antimicrobial Resistance &amp; One Health</h3><p>Exploring AMR in environmental contexts and its links to human and animal health.</p></section></div>
+      <div><span>▥</span><section><h3>Omics, Bioinformatics &amp; Systems Biology</h3><p>Generating and analysing omics data to understand microbial functions and drive solutions.</p></section></div>
+    </div>
+  </article>
 </section>
-<section class="contact" id="contact"><div class="shell contact-inner"><div class="contact-copy"><p class="eyebrow">Get In Touch</p><h2>Contact / Collaborate</h2><span class="mini-rule"></span><p>I'm always open to discussing research ideas, collaboration opportunities, or ways to support a cleaner, healthier and more sustainable world.</p><div class="contact-icons"><div><span>◎</span><small>Research<br>Collaboration</small></div><div><span>▣</span><small>Academic /<br>Teaching</small></div><div><span>◇</span><small>Professional<br>Opportunities</small></div><div><span>▤</span><small>Speaking /<br>Conference</small></div><div><span>⌕</span><small>General<br>Enquiries</small></div></div></div><form class="contact-form" id="contactForm" action="https://formsubmit.co/bashmodulus+website@gmail.com" method="POST" data-formsubmit="https://formsubmit.co/ajax/bashmodulus+website@gmail.com">
-<input type="hidden" name="_subject" value="New enquiry from bashirusani.com"><input type="hidden" name="_template" value="table"><div class="field-row"><label>Full name *<input name="name" required></label><label>Email address *<input type="email" name="email" required></label></div><label>Subject *<input name="subject" required></label><label>Enquiry type *<select name="enquiry_type" required><option>Research collaboration</option><option>Academic / teaching</option><option>Professional opportunity</option><option>Speaking / conference</option><option>General enquiry</option></select></label><label>Your message *<textarea name="message" rows="4" required></textarea></label><button type="submit">Send Message <span>→</span></button><p class="notice" id="formStatus">🔒 Your message will be forwarded to my email. Spam protection is enabled.</p></form></div></section>
+
+<section class="shell outputs-pubs" id="outputs">
+  <article>
+    <div class="section-heading"><h2>Outputs</h2><i></i></div>
+    <div class="output-grid">
+      <div><span>♟</span><h3>Conferences</h3><p>Presentations and scientific engagements</p><b>→</b></div>
+      <div><span>▣</span><h3>Workshops &amp; Webinars</h3><p>Training, knowledge sharing and public engagement</p><b>→</b></div>
+      <div><span>◇</span><h3>Training &amp; Certifications</h3><p>Professional development and technical skills</p><b>→</b></div>
+      <div><span>✎</span><h3>Future Blog</h3><p>Ideas, insights and updates from the lab and beyond</p><b>→</b></div>
+    </div>
+  </article>
+  <article id="publications">
+    <div class="section-heading split"><div><h2>Selected Publications</h2><i></i></div><a href="https://scholar.google.com/citations?user=ZXR2KdUAAAAJ&hl=en" target="_blank" rel="noopener">View All Publications →</a></div>
+    <div class="pub-list">
+      <a href="https://doi.org/10.36547/be.475" target="_blank" rel="noopener"><span>▤</span><section><h3>Prevalence and antibiogram profile of <em>Listeria monocytogenes</em> associated with cattle farms in Lafia, Nasarawa State</h3><p>Bacterial Empire, 2022</p></section></a>
+      <a href="https://doi.org/10.55010/imcjms.16.010" target="_blank" rel="noopener"><span>▤</span><section><h3>Molecular Pathogenesis of Rocky Mountain Spotted Fever: A Brief Review</h3><p>IMC Journal of Medical Science, 2022</p></section></a>
+      <a href="https://doi.org/10.1016/j.bsheal.2021.07.003" target="_blank" rel="noopener"><span>▤</span><section><h3>SARS-CoV-2 Spike Protein and RNA Dependent RNA Polymerase as Targets for Drug and Vaccine Development: A Review</h3><p>Biosafety and Health, 2021</p></section></a>
+    </div>
+  </article>
+</section>
+
+<section class="contact" id="contact">
+  <div class="shell contact-grid">
+    <div class="contact-copy"><p class="eyebrow">Get In Touch</p><h2>Contact / Collaborate</h2><i></i><p>I'm always open to discussing research ideas, collaboration opportunities, or ways to support a cleaner, healthier and more sustainable world.</p>
+      <div class="contact-icons"><div><span>◎</span><small>Research<br>Collaboration</small></div><div><span>▣</span><small>Academic /<br>Teaching</small></div><div><span>◇</span><small>Professional<br>Opportunities</small></div><div><span>▤</span><small>Speaking /<br>Conference</small></div><div><span>⌕</span><small>General<br>Enquiries</small></div></div>
+    </div>
+    <form class="contact-form" id="contactForm" action="https://formsubmit.co/bashmodulus+website@gmail.com" method="POST" data-formsubmit="https://formsubmit.co/ajax/bashmodulus+website@gmail.com"><input type="hidden" name="_subject" value="New enquiry from bashirusani.com"><input type="hidden" name="_template" value="table"><div class="field-row"><label>Full name *<input name="name" required></label><label>Email address *<input type="email" name="email" required></label></div><label>Subject *<input name="subject" required></label><label>Enquiry type *<select name="enquiry_type" required><option>Research collaboration</option><option>Academic / teaching</option><option>Professional opportunity</option><option>Speaking / conference</option><option>General enquiry</option></select></label><label>Your message *<textarea name="message" required></textarea></label><button type="submit">Send Message →</button><p id="formStatus">🔒 Your message will be forwarded to my email. Spam protection is enabled.</p></form>
+  </div>
+</section>
+<footer><div class="shell footer-main"><div class="footer-brand"><img src="assets/bashiru-sani-logo.png" alt=""><div><strong>Bashiru Sani</strong><small>SCIENCE FOR A HEALTHY PLANET</small></div></div><div class="footer-links">Research &nbsp; | &nbsp; Collaboration &nbsp; | &nbsp; Impact &nbsp; | &nbsp; A Healthier Tomorrow</div><div class="footer-social"><a href="https://www.linkedin.com/in/bashir-sani/" target="_blank" rel="noopener">in</a> &nbsp; <a href="https://x.com/BashEya" target="_blank" rel="noopener">𝕏</a> &nbsp; <a href="mailto:bashmodulus@gmail.com">✉</a> &nbsp; | &nbsp; bashirusani.com</div></div><div class="footer-bottom"><span>© 2026 Bashiru Sani. All rights reserved.</span><span>Microbes. People. A Healthier Planet.</span></div></footer>
 </main>
-<footer><div class="shell footer-main"><div class="footer-brand"><img src="assets/bashiru-sani-logo.png" alt=""><span><strong>Bashiru Sani</strong><small>SCIENCE FOR A HEALTHY PLANET</small></span></div><div class="footer-links"><a href="#themes">Research</a><span>|</span><a href="#contact">Collaboration</a><span>|</span><a href="#outputs">Impact</a><span>|</span><a href="#home">A Healthier Tomorrow</a></div><div class="social"><a href="https://www.linkedin.com/in/bashir-sani/" target="_blank">in</a><a href="https://x.com/BashEya" target="_blank">𝕏</a><a href="mailto:bashmodulus@gmail.com">✉</a><span>|</span><span>bashirusani.com</span></div></div><div class="footer-bottom"><span>© 2026 Bashiru Sani. All rights reserved.</span><span>Microbes. People. A Healthier Planet.</span></div></footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
