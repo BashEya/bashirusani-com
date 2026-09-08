@@ -80,8 +80,7 @@ form?.addEventListener('submit',async event=>{
   }
 });
 
-// Hero backdrop: keep the live website structure, but use the visual language
-// from the approved mockup — Earth on the right and microbes across the field.
+// Hero backdrop: Earth on the right and microbes across the field.
 const heroBackdropStyle=document.createElement('style');
 heroBackdropStyle.textContent=`
   .hero{
@@ -96,9 +95,12 @@ heroBackdropStyle.textContent=`
     .hero{background-position:66% center !important;}
     .hero:before{background:linear-gradient(180deg,rgba(2,26,44,.48),rgba(2,30,47,.24)) !important;}
   }
-  @media(max-width:620px){
-    .hero{background-position:72% center !important;background-size:auto 100% !important;}
-    .hero:before{background:linear-gradient(180deg,rgba(2,24,42,.66) 0%,rgba(2,31,48,.36) 58%,rgba(2,29,44,.22) 100%) !important;}
-  }
 `;
 document.head.appendChild(heroBackdropStyle);
+
+// Final fidelity stylesheet. This intentionally loads last so the live site follows
+// the approved portrait mockup on phones/tablets instead of stacking the hero vertically.
+const fidelityStylesheet=document.createElement('link');
+fidelityStylesheet.rel='stylesheet';
+fidelityStylesheet.href='/mockup-fidelity.css?v=1';
+document.head.appendChild(fidelityStylesheet);
