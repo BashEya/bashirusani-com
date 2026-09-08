@@ -1,0 +1,91 @@
+/* Fidelity pass to make the live site visually match the approved portrait mockup. */
+
+/* Keep the polished poster-like composition on desktop/tablet. */
+.hero{background:#073c55 url('/assets/hero-earth-microbes.svg') center center/cover no-repeat !important;}
+.hero:before{background:linear-gradient(90deg,rgba(2,25,45,.64) 0%,rgba(3,37,56,.34) 40%,rgba(3,46,62,.12) 68%,rgba(2,28,46,.02) 100%) !important;}
+.hero-grid{position:relative;}
+.hero-visual>img{box-shadow:none !important;border:none !important;}
+
+@media(max-width:820px){
+  .container{width:min(calc(100% - 24px),1220px) !important;}
+  .nav{min-height:70px !important;}
+  .brand-logo{width:46px !important;height:46px !important;}
+  .brand strong{font-size:19px !important;}
+
+  /* Do not stack the hero into a giant text block followed by a giant image.
+     Keep the person, Earth and research copy in one composed panel like the mockup. */
+  .hero{min-height:585px !important;background-position:58% center !important;background-size:cover !important;}
+  .hero:before{background:linear-gradient(90deg,rgba(1,25,43,.72) 0%,rgba(2,35,51,.52) 48%,rgba(2,42,56,.18) 74%,rgba(2,28,43,.02) 100%) !important;}
+  .hero-grid{display:block !important;min-height:585px !important;position:relative !important;overflow:hidden;}
+  .hero-copy{position:relative !important;z-index:8 !important;width:60% !important;padding:30px 0 24px !important;}
+  .hero-kicker{font-size:8px !important;letter-spacing:.20em !important;margin-bottom:8px !important;white-space:nowrap;}
+  .hero-copy h1{font-size:34px !important;line-height:.98 !important;margin-bottom:5px !important;}
+  .hero-role{font-size:10px !important;margin-bottom:13px !important;line-height:1.25 !important;}
+  .hero-role span{width:24px !important;height:2px !important;margin-right:6px !important;}
+  .hero-copy h2{font-size:26px !important;line-height:1.03 !important;margin-bottom:11px !important;}
+  .lead{font-size:10px !important;line-height:1.43 !important;max-width:none !important;color:#f4f8f6 !important;}
+  .hero-actions{display:grid !important;grid-template-columns:1fr 1fr !important;gap:7px !important;margin-top:15px !important;width:100% !important;}
+  .hero-actions .btn{width:auto !important;min-height:36px !important;padding:0 9px !important;font-size:9px !important;border-radius:5px !important;}
+  .impact-row{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:7px !important;margin-top:15px !important;width:100% !important;}
+  .impact-row>div{gap:5px !important;min-width:0 !important;}
+  .impact-row span{width:29px !important;height:29px !important;font-size:12px !important;flex:0 0 29px !important;}
+  .impact-row p{font-size:7.5px !important;line-height:1.18 !important;}
+
+  .hero-visual{position:absolute !important;z-index:5 !important;right:-7% !important;bottom:0 !important;width:53% !important;height:100% !important;min-height:0 !important;display:block !important;overflow:visible !important;}
+  .hero-visual>img{position:absolute !important;right:0 !important;bottom:-4px !important;width:100% !important;height:450px !important;object-fit:cover !important;object-position:center top !important;border-radius:48% 48% 6% 6% !important;clip-path:ellipse(49% 56% at 50% 52%) !important;box-shadow:none !important;}
+  .script-note{display:block !important;position:absolute !important;z-index:9 !important;top:84px !important;right:7px !important;font-size:17px !important;line-height:1.02 !important;width:118px !important;}
+  .script-note:after{width:77px !important;height:2px !important;margin-top:6px !important;}
+  .hero-visual blockquote{display:block !important;position:absolute !important;z-index:9 !important;right:4px !important;bottom:64px !important;width:104px !important;font-size:9px !important;line-height:1.35 !important;}
+  .hero-visual cite{font-size:6.5px !important;margin-top:6px !important;}
+
+  /* Four focus cards become a compact 2x2 grid rather than long full-width rows. */
+  .focus-strip{padding:8px 0 10px !important;}
+  .focus-grid{grid-template-columns:1fr 1fr !important;gap:7px !important;}
+  .focus-grid article{grid-template-columns:38px 1fr !important;gap:8px !important;min-height:98px !important;padding:11px 9px !important;}
+  .focus-icon{width:36px !important;height:36px !important;font-size:17px !important;}
+  .focus-grid h3{font-size:11px !important;line-height:1.13 !important;margin:1px 0 4px !important;}
+  .focus-grid p{font-size:7.6px !important;line-height:1.34 !important;}
+
+  /* Keep the project card image beside the copy like the approved composition. */
+  .research-layout{grid-template-columns:1fr !important;gap:8px !important;}
+  .project-card{grid-template-columns:1.08fr .92fr !important;min-height:285px !important;}
+  .project-copy{padding:14px 13px !important;}
+  .project-card h2{font-size:17px !important;line-height:1.08 !important;margin:7px 0 8px !important;}
+  .project-card p{font-size:8px !important;line-height:1.42 !important;}
+  .project-art{min-height:285px !important;}
+  .amoeba-visual{width:135px !important;height:135px !important;}
+  .project-art p{font-size:12px !important;margin-bottom:22px !important;}
+  .theme-panel{padding:12px !important;}
+  .theme-grid{grid-template-columns:1fr 1fr !important;gap:6px !important;}
+  .theme-grid article{grid-template-columns:42px 1fr !important;gap:7px !important;min-height:92px !important;padding:8px !important;}
+  .theme-icon{width:38px !important;height:38px !important;font-size:17px !important;}
+  .theme-grid h3{font-size:10px !important;margin:2px 0 4px !important;}
+  .theme-grid p{font-size:7.3px !important;line-height:1.34 !important;}
+
+  .work-grid{grid-template-columns:1fr !important;gap:15px !important;}
+  .output-grid{grid-template-columns:1fr 1fr !important;gap:7px !important;}
+  .output-grid article{min-height:132px !important;padding:11px 10px !important;}
+  .output-grid h3{font-size:10px !important;}
+  .output-grid p{font-size:7.5px !important;}
+  .contact-grid{grid-template-columns:1fr !important;gap:20px !important;}
+}
+
+@media(max-width:560px){
+  .hero{min-height:560px !important;}
+  .hero-grid{min-height:560px !important;}
+  .hero-copy{width:61% !important;padding-top:26px !important;}
+  .hero-kicker{font-size:7.3px !important;}
+  .hero-copy h1{font-size:31px !important;}
+  .hero-role{font-size:9px !important;}
+  .hero-copy h2{font-size:23px !important;}
+  .lead{font-size:9.2px !important;line-height:1.40 !important;}
+  .hero-actions .btn{font-size:8.3px !important;padding:0 7px !important;}
+  .impact-row p{font-size:7px !important;}
+  .hero-visual{right:-9% !important;width:55% !important;}
+  .hero-visual>img{height:425px !important;}
+  .script-note{top:74px !important;right:2px !important;font-size:15px !important;width:104px !important;}
+  .hero-visual blockquote{bottom:58px !important;width:94px !important;font-size:8px !important;}
+  .focus-grid{grid-template-columns:1fr 1fr !important;}
+  .project-card{grid-template-columns:1.08fr .92fr !important;}
+  .theme-grid,.output-grid{grid-template-columns:1fr 1fr !important;}
+}
