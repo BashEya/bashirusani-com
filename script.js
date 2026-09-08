@@ -33,66 +33,6 @@ if(portrait){
   if(portrait.complete) process(); else portrait.addEventListener('load',process,{once:true});
 }
 
-// Exact-reference hero mode.
-// If assets/hero-exact.png exists, the live hero uses that supplied artwork itself,
-// so the browser view is visually identical rather than another CSS interpretation.
-(()=>{
-  const hero=document.querySelector('.hero');
-  if(!hero) return;
-  const exact=new Image();
-  exact.decoding='async';
-  exact.loading='eager';
-  exact.alt='Bashiru Sani — Microbiology across health, environment and remediation';
-  exact.onload=()=>{
-    const style=document.createElement('style');
-    style.textContent=`
-      .hero.hero-as-reference{background:#073d58!important;padding:0!important;min-height:0!important;overflow:hidden!important;position:relative!important;}
-      .hero.hero-as-reference::before,.hero.hero-as-reference::after{display:none!important;}
-      .hero.hero-as-reference>.hero-grid{display:none!important;}
-      .hero-exact-wrap{position:relative;width:100%;aspect-ratio:1284/600;background:#073d58;overflow:hidden;}
-      .hero-reference-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;}
-      .hero-hotspot{position:absolute;display:block;z-index:3;border-radius:8px;background:transparent;color:transparent;font-size:0;}
-      .hero-hotspot:focus-visible{outline:3px solid #fff;outline-offset:3px;background:rgba(255,255,255,.08);}
-      .hero-hotspot.research{left:8.3%;top:73.1%;width:20.2%;height:9.4%;}
-      .hero-hotspot.publications{left:31.0%;top:73.1%;width:16.8%;height:9.4%;}
-      .hero-semantic{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
-      @media(max-width:700px){
-        .hero-exact-wrap{aspect-ratio:1284/600;}
-        .hero-reference-image{object-fit:contain;background:#073d58;}
-      }
-    `;
-    document.head.appendChild(style);
-
-    const wrap=document.createElement('div');
-    wrap.className='hero-exact-wrap';
-    exact.className='hero-reference-image';
-    wrap.appendChild(exact);
-
-    const research=document.createElement('a');
-    research.className='hero-hotspot research';
-    research.href='#current-project';
-    research.setAttribute('aria-label','Explore my research');
-    wrap.appendChild(research);
-
-    const publications=document.createElement('a');
-    publications.className='hero-hotspot publications';
-    publications.href='#publications';
-    publications.setAttribute('aria-label','View publications');
-    wrap.appendChild(publications);
-
-    const semantic=document.createElement('div');
-    semantic.className='hero-semantic';
-    semantic.innerHTML='<h1>Bashiru Sani</h1><p>Microbiologist, PhD Researcher & Lecturer</p><h2>Microbiology across health, environment and remediation.</h2><p>Research across microbial ecology, environmental microbiology, bioremediation, One Health and antimicrobial resistance.</p>';
-    wrap.appendChild(semantic);
-
-    hero.classList.add('hero-as-reference');
-    hero.prepend(wrap);
-  };
-  // Do nothing if the asset has not yet been uploaded; the current hero remains intact.
-  exact.onerror=()=>{};
-  exact.src='/assets/hero-exact.png';
-})();
-
 const form=document.getElementById('contactForm');
 const formStatus=document.getElementById('formStatus');
 form?.addEventListener('submit',async event=>{
