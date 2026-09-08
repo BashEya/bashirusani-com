@@ -1,106 +1,55 @@
 const btn=document.getElementById('menuBtn');
 const nav=document.getElementById('navMenu');
+btn?.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn?.setAttribute('aria-expanded','false');}));
+const year=document.getElementById('year');if(year) year.textContent=new Date().getFullYear();
 
-btn?.addEventListener('click',()=>{
-  const open=nav.classList.toggle('open');
-  btn.setAttribute('aria-expanded',String(open));
-});
-nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  nav.classList.remove('open');
-  btn?.setAttribute('aria-expanded','false');
-}));
+// Remove the olive studio backdrop from the existing portrait at runtime.
+// This keeps the real portrait but lets it sit naturally inside the blue science hero.
+const portrait=document.getElementById('heroPortrait');
+if(portrait){
+  const process=()=>{
+    try{
+      const canvas=document.createElement('canvas');
+      canvas.width=portrait.naturalWidth;canvas.height=portrait.naturalHeight;
+      const ctx=canvas.getContext('2d',{willReadFrequently:true});
+      ctx.drawImage(portrait,0,0);
+      const frame=ctx.getImageData(0,0,canvas.width,canvas.height);
+      const d=frame.data;
+      for(let i=0;i<d.length;i+=4){
+        const r=d[i],g=d[i+1],b=d[i+2];
+        const olive=(b<72 && g>b*1.45 && g>r*.88 && g<r*1.42 && r<145);
+        if(olive){
+          const strength=Math.min(1,Math.max(0,(72-b)/44));
+          d[i+3]=Math.round(255*(1-strength));
+        }
+      }
+      ctx.putImageData(frame,0,0);
+      canvas.className='processed-portrait';
+      canvas.setAttribute('aria-label',portrait.alt||'Professional portrait of Bashiru Sani');
+      portrait.replaceWith(canvas);
+    }catch(e){console.warn('Portrait background processing skipped',e);}
+  };
+  if(portrait.complete) process(); else portrait.addEventListener('load',process,{once:true});
+}
 
-const year=document.getElementById('year');
-if(year) year.textContent=new Date().getFullYear();
-
-// Vercel Web Analytics for this static HTML site.
-window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
-const analyticsScript=document.createElement('script');
-analyticsScript.defer=true;
-analyticsScript.src='/_vercel/insights/script.js';
-document.head.appendChild(analyticsScript);
-
-// Vercel Speed Insights for this static HTML site.
-window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};
-const speedInsightsScript=document.createElement('script');
-speedInsightsScript.defer=true;
-speedInsightsScript.src='/_vercel/speed-insights/script.js';
-document.head.appendChild(speedInsightsScript);
-
-// Fresh FormSubmit AJAX flow. This gives visitors an in-page success/error state
-// instead of redirecting away from the site. FormSubmit may send a one-time
-// activation email to the site owner the first time this endpoint is used.
 const form=document.getElementById('contactForm');
 const formStatus=document.getElementById('formStatus');
-
 form?.addEventListener('submit',async event=>{
   event.preventDefault();
   const submitButton=form.querySelector('button[type="submit"]');
   const endpoint=form.dataset.formsubmit;
-
-  if(!endpoint){
-    form.submit();
-    return;
-  }
-
-  const originalButton=submitButton.innerHTML;
-  submitButton.disabled=true;
-  submitButton.textContent='Sending…';
-  formStatus.className='form-status';
-  formStatus.textContent='Sending your message securely…';
-
+  const original=submitButton.innerHTML;
+  submitButton.disabled=true;submitButton.textContent='Sending…';formStatus.textContent='Sending your message securely…';
   try{
     const data=Object.fromEntries(new FormData(form).entries());
-    const response=await fetch(endpoint,{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'Accept':'application/json'
-      },
-      body:JSON.stringify(data)
-    });
-
-    let result={};
-    try{result=await response.json();}catch(_){/* response body is optional */}
-
-    if(!response.ok){
-      throw new Error(result.message||'Unable to submit form');
-    }
-
-    form.reset();
-    formStatus.className='form-status success';
-    formStatus.textContent='Thank you — your message has been submitted successfully.';
-  }catch(error){
-    formStatus.className='form-status error';
-    formStatus.textContent='The message could not be sent. Please email bashmodulus@gmail.com directly or try again shortly.';
-    console.error('Contact form submission failed:',error);
-  }finally{
-    submitButton.disabled=false;
-    submitButton.innerHTML=originalButton;
-  }
+    const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    let result={};try{result=await response.json()}catch{}
+    if(!response.ok) throw new Error(result.message||'Unable to submit');
+    form.reset();formStatus.textContent='Thank you — your message has been submitted successfully.';
+  }catch(e){formStatus.textContent='The message could not be sent. Please email bashmodulus@gmail.com directly or try again shortly.';}
+  finally{submitButton.disabled=false;submitButton.innerHTML=original;}
 });
 
-// Hero backdrop: Earth on the right and microbes across the field.
-const heroBackdropStyle=document.createElement('style');
-heroBackdropStyle.textContent=`
-  .hero{
-    background:#073c55 url('/assets/hero-earth-microbes.svg') center center/cover no-repeat !important;
-  }
-  .hero:before{
-    background:linear-gradient(90deg,rgba(2,25,45,.60) 0%,rgba(3,37,56,.34) 38%,rgba(3,46,62,.12) 67%,rgba(2,28,46,.05) 100%) !important;
-  }
-  .hero:after,.microbe-field,.planet{display:none !important;}
-  .hero-copy,.hero-visual{position:relative;z-index:2;}
-  @media(max-width:1000px){
-    .hero{background-position:66% center !important;}
-    .hero:before{background:linear-gradient(180deg,rgba(2,26,44,.48),rgba(2,30,47,.24)) !important;}
-  }
-`;
-document.head.appendChild(heroBackdropStyle);
-
-// Final fidelity stylesheet. This intentionally loads last so the live site follows
-// the approved portrait mockup on phones/tablets instead of stacking the hero vertically.
-const fidelityStylesheet=document.createElement('link');
-fidelityStylesheet.rel='stylesheet';
-fidelityStylesheet.href='/mockup-fidelity.css?v=1';
-document.head.appendChild(fidelityStylesheet);
+window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};const a=document.createElement('script');a.defer=true;a.src='/_vercel/insights/script.js';document.head.appendChild(a);
+window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};const s=document.createElement('script');s.defer=true;s.src='/_vercel/speed-insights/script.js';document.head.appendChild(s);
