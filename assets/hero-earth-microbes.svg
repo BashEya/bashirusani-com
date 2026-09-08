@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 680" role="img" aria-label="Stylised scientific background with microbes and Earth">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#062c4b"/>
+      <stop offset="0.55" stop-color="#07526a"/>
+      <stop offset="1" stop-color="#073d55"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#031f37" stop-opacity="0.62"/>
+      <stop offset="0.46" stop-color="#03283f" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#021a2c" stop-opacity="0.10"/>
+    </linearGradient>
+    <radialGradient id="earth" cx="36%" cy="30%" r="68%">
+      <stop offset="0" stop-color="#7ac7dd"/>
+      <stop offset="0.28" stop-color="#2e85a8"/>
+      <stop offset="0.62" stop-color="#145f7e"/>
+      <stop offset="1" stop-color="#082d4b"/>
+    </radialGradient>
+    <radialGradient id="cell" cx="38%" cy="35%" r="68%">
+      <stop offset="0" stop-color="#84dccd" stop-opacity="0.62"/>
+      <stop offset="0.38" stop-color="#2fa89f" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#0b5365" stop-opacity="0.04"/>
+    </radialGradient>
+    <filter id="blur18"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="blur6"><feGaussianBlur stdDeviation="6"/></filter>
+    <clipPath id="earthClip"><circle cx="1540" cy="242" r="330"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="680" fill="url(#bg)"/>
+
+  <!-- soft microbial field -->
+  <g opacity="0.34">
+    <circle cx="132" cy="118" r="90" fill="url(#cell)" filter="url(#blur6)"/>
+    <circle cx="314" cy="418" r="122" fill="url(#cell)" filter="url(#blur18)"/>
+    <circle cx="612" cy="126" r="96" fill="url(#cell)" filter="url(#blur18)"/>
+    <circle cx="878" cy="366" r="132" fill="url(#cell)" filter="url(#blur18)"/>
+    <circle cx="1136" cy="128" r="82" fill="url(#cell)" filter="url(#blur18)"/>
+  </g>
+
+  <!-- microbe silhouettes -->
+  <g fill="none" stroke="#8ce3d7" stroke-opacity="0.20" stroke-width="3">
+    <g transform="translate(45 148) rotate(-18)">
+      <ellipse cx="0" cy="0" rx="70" ry="42"/>
+      <path d="M-62 -18c-32-34-38-58-25-72M-69 8c-43 4-73 20-88 48M-41 34c-25 38-23 67-8 93M48 -27c42-18 70-15 97 8M59 15c38 13 59 35 72 70"/>
+      <circle cx="-18" cy="-8" r="9"/><circle cx="18" cy="13" r="7"/><circle cx="38" cy="-12" r="5"/>
+    </g>
+    <g transform="translate(1002 176) rotate(28)">
+      <ellipse cx="0" cy="0" rx="58" ry="34"/>
+      <path d="M-48 -18c-32-31-36-48-23-64M43 -19c31-19 56-21 84-8M49 17c29 12 49 34 58 59"/>
+      <circle cx="-13" cy="-7" r="7"/><circle cx="20" cy="8" r="6"/>
+    </g>
+    <g transform="translate(118 566) rotate(22)">
+      <ellipse cx="0" cy="0" rx="78" ry="38"/>
+      <path d="M-64 -15c-34-26-51-52-45-78M57 -17c41-16 68-12 94 11"/>
+      <circle cx="-23" cy="3" r="8"/><circle cx="17" cy="-8" r="6"/><circle cx="39" cy="9" r="5"/>
+    </g>
+  </g>
+
+  <!-- bacteria rods -->
+  <g fill="#82d9cd" fill-opacity="0.13" stroke="#b2f0e5" stroke-opacity="0.14" stroke-width="2">
+    <rect x="462" y="78" width="84" height="24" rx="12" transform="rotate(25 504 90)"/>
+    <rect x="706" y="500" width="106" height="26" rx="13" transform="rotate(-32 759 513)"/>
+    <rect x="1054" y="496" width="88" height="23" rx="12" transform="rotate(14 1098 508)"/>
+    <rect x="1320" y="566" width="96" height="24" rx="12" transform="rotate(-18 1368 578)"/>
+  </g>
+
+  <!-- Earth -->
+  <circle cx="1540" cy="242" r="330" fill="url(#earth)" stroke="#9bd7df" stroke-opacity="0.28" stroke-width="2"/>
+  <g clip-path="url(#earthClip)" opacity="0.84">
+    <path d="M1348 84c62-30 112-14 143 9 29 22 53 28 92 19 35-8 83-1 112 25 24 22 17 54-7 70-29 18-43 39-46 73-4 43-25 83-69 95-35 10-65-2-86 18-21 19-18 55-53 71-41 18-91-8-108-47-16-36-4-77-26-108-16-23-54-34-64-63-12-36 13-68 40-85 25-16 40-51 72-77z" fill="#6fba63"/>
+    <path d="M1505 348c34-22 72-21 106-3 28 14 56 12 82 3 44-16 70 14 62 50-6 29-39 42-59 58-31 24-47 52-77 74-28 21-69 12-90-10-24-25-24-59-44-84-18-23-16-66 20-88z" fill="#3f9857"/>
+    <path d="M1277 210c28-17 58-18 84-4 19 10 24 35 10 51-13 16-40 18-56 31-20 16-51 13-65-7-15-22 2-55 27-71z" fill="#80c86d"/>
+    <g fill="none" stroke="#d4edf0" stroke-opacity="0.16" stroke-width="2">
+      <ellipse cx="1540" cy="242" rx="252" ry="330"/>
+      <ellipse cx="1540" cy="242" rx="142" ry="330"/>
+      <ellipse cx="1540" cy="242" rx="330" ry="118"/>
+      <ellipse cx="1540" cy="242" rx="330" ry="225"/>
+    </g>
+  </g>
+  <circle cx="1540" cy="242" r="330" fill="none" stroke="#b2e6e7" stroke-opacity="0.18" stroke-width="10" filter="url(#blur6)"/>
+
+  <!-- subtle left-to-right readability shade -->
+  <rect width="1600" height="680" fill="url(#shade)"/>
+</svg>
