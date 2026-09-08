@@ -1,8 +1,14 @@
 const btn=document.getElementById('menuBtn');
 const nav=document.getElementById('navMenu');
 
-btn?.addEventListener('click',()=>nav.classList.toggle('open'));
-nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+btn?.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded',String(open));
+});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  btn?.setAttribute('aria-expanded','false');
+}));
 
 const year=document.getElementById('year');
 if(year) year.textContent=new Date().getFullYear();
@@ -21,30 +27,55 @@ speedInsightsScript.defer=true;
 speedInsightsScript.src='/_vercel/speed-insights/script.js';
 document.head.appendChild(speedInsightsScript);
 
-// Use the dedicated favicon/app-icon set across browsers and devices.
-// Remove the earlier single-logo favicon links first so browsers do not choose
-// the old full-size logo in preference to the optimized icons.
-document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"], link[rel="manifest"]').forEach(link=>link.remove());
+// Fresh FormSubmit AJAX flow. This gives visitors an in-page success/error state
+// instead of redirecting away from the site. FormSubmit may send a one-time
+// activation email to the site owner the first time this endpoint is used.
+const form=document.getElementById('contactForm');
+const formStatus=document.getElementById('formStatus');
 
-const addHeadLink=(rel,href,{sizes,type}={})=>{
-  const link=document.createElement('link');
-  link.rel=rel;
-  link.href=href;
-  if(sizes) link.sizes=sizes;
-  if(type) link.type=type;
-  document.head.appendChild(link);
-};
+form?.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const submitButton=form.querySelector('button[type="submit"]');
+  const endpoint=form.dataset.formsubmit;
 
-addHeadLink('icon','/assets/favicon.ico',{type:'image/x-icon'});
-addHeadLink('icon','/assets/favicon-16x16.png',{sizes:'16x16',type:'image/png'});
-addHeadLink('icon','/assets/favicon-32x32.png',{sizes:'32x32',type:'image/png'});
-addHeadLink('icon','/assets/favicon-48x48.png',{sizes:'48x48',type:'image/png'});
-addHeadLink('apple-touch-icon','/assets/apple-touch-icon.png',{sizes:'180x180'});
-addHeadLink('manifest','/site.webmanifest');
+  if(!endpoint){
+    form.submit();
+    return;
+  }
 
-if(!document.head.querySelector('meta[name="application-name"]')){
-  const meta=document.createElement('meta');
-  meta.name='application-name';
-  meta.content='Bashiru Sani';
-  document.head.appendChild(meta);
-}
+  const originalButton=submitButton.innerHTML;
+  submitButton.disabled=true;
+  submitButton.textContent='Sending…';
+  formStatus.className='form-status';
+  formStatus.textContent='Sending your message securely…';
+
+  try{
+    const data=Object.fromEntries(new FormData(form).entries());
+    const response=await fetch(endpoint,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Accept':'application/json'
+      },
+      body:JSON.stringify(data)
+    });
+
+    let result={};
+    try{result=await response.json();}catch(_){/* response body is optional */}
+
+    if(!response.ok){
+      throw new Error(result.message||'Unable to submit form');
+    }
+
+    form.reset();
+    formStatus.className='form-status success';
+    formStatus.textContent='Thank you — your message has been submitted successfully.';
+  }catch(error){
+    formStatus.className='form-status error';
+    formStatus.textContent='The message could not be sent. Please email bashmodulus@gmail.com directly or try again shortly.';
+    console.error('Contact form submission failed:',error);
+  }finally{
+    submitButton.disabled=false;
+    submitButton.innerHTML=originalButton;
+  }
+});
