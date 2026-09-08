@@ -79,3 +79,26 @@ form?.addEventListener('submit',async event=>{
     submitButton.innerHTML=originalButton;
   }
 });
+
+// Hero backdrop: keep the live website structure, but use the visual language
+// from the approved mockup — Earth on the right and microbes across the field.
+const heroBackdropStyle=document.createElement('style');
+heroBackdropStyle.textContent=`
+  .hero{
+    background:#073c55 url('/assets/hero-earth-microbes.svg') center center/cover no-repeat !important;
+  }
+  .hero:before{
+    background:linear-gradient(90deg,rgba(2,25,45,.60) 0%,rgba(3,37,56,.34) 38%,rgba(3,46,62,.12) 67%,rgba(2,28,46,.05) 100%) !important;
+  }
+  .hero:after,.microbe-field,.planet{display:none !important;}
+  .hero-copy,.hero-visual{position:relative;z-index:2;}
+  @media(max-width:1000px){
+    .hero{background-position:66% center !important;}
+    .hero:before{background:linear-gradient(180deg,rgba(2,26,44,.48),rgba(2,30,47,.24)) !important;}
+  }
+  @media(max-width:620px){
+    .hero{background-position:72% center !important;background-size:auto 100% !important;}
+    .hero:before{background:linear-gradient(180deg,rgba(2,24,42,.66) 0%,rgba(2,31,48,.36) 58%,rgba(2,29,44,.22) 100%) !important;}
+  }
+`;
+document.head.appendChild(heroBackdropStyle);
